@@ -27,7 +27,7 @@ pip install matplotlib seaborn
 
 ## Installation
 
-Download the `__init__.py` file and include it in your project directory. Import the utility functions in your Python scripts where needed.
+Download the `plotting_utility.py` file and include it in your project directory. Import the utility functions in your Python scripts where needed.
 
 ## Usage
 
@@ -35,7 +35,7 @@ Here is a basic example of how to use the `create_seaborn_plots` function to cre
 
 ```python
 import seaborn as sns
-from __init__ import create_seaborn_plots
+from plotting_utility import create_seaborn_plots
 
 # Example data
 data = sns.load_dataset("tips")
@@ -75,7 +75,7 @@ create_seaborn_plots(plot_configs, ["Plot 1", "Plot 2"], 2, 1, sns.lineplot, "ou
 - **Secondary Axes**: Add secondary y-axes with separate labels and log scaling.
 - **3D Plots**: Enable 3D plotting by passing the `projection='3d'` parameter to the `add_subplot` function.
 
-For detailed customization options, refer to the docstrings provided within the `__init__.py` script.
+For detailed customization options, refer to the docstrings provided within the `plotting_utility.py` script.
 
 ## Contributing
 
