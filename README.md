@@ -40,7 +40,7 @@ from plotting_utility import create_seaborn_plots
 # Example data
 data = sns.load_dataset("tips")
 
-plot_configs = [
+plot_configs = [[
     {
         'data': data,
         'x_col': 'total_bill',
@@ -62,7 +62,7 @@ plot_configs = [
         'secondary_y': True,
         'secondary_y_label': 'Party Size'
     }
-]
+]]
 
 create_seaborn_plots(plot_configs, ["Plot 1", "Plot 2"], 2, 1, sns.lineplot, "output.png")
 ```
