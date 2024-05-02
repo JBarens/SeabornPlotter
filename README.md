@@ -40,29 +40,34 @@ from plotting_utility import create_seaborn_plots
 # Example data
 data = sns.load_dataset("tips")
 
-plot_configs = [[
-    {
-        'data': data,
-        'x_col': 'total_bill',
-        'y_col': 'tip',
-        'label': 'Total Bill vs. Tip',
-        'x_label': 'Total Bill',
-        'y_label': 'Tip',
-        'log_scale': False,
-        'secondary_y': False
-    },
-    {
-        'data': data,
-        'x_col': 'total_bill',
-        'y_col': 'size',
-        'label': 'Total Bill vs. Size',
-        'x_label': 'Total Bill',
-        'y_label': 'Size',
-        'log_scale': False,
-        'secondary_y': True,
-        'secondary_y_label': 'Party Size'
-    }
-]]
+# Configuration for each plot in the grid
+plot_configs = [
+    [
+        {
+            'data': data,
+            'x_col': 'total_bill',
+            'y_col': 'tip',
+            'label': 'Total Bill vs. Tip',
+            'x_label': 'Total Bill',
+            'y_label': 'Tip',
+            'log_scale_x': False,
+            'log_scale_y': False,
+            'secondary_y': False
+        },
+        {
+            'data': data,
+            'x_col': 'total_bill',
+            'y_col': 'size',
+            'label': 'Total Bill vs. Size',
+            'x_label': 'Total Bill',
+            'y_label': 'Size',
+            'log_scale_x': False,
+            'log_scale_y': False,
+            'secondary_y': True,
+            'secondary_y_label': 'Party Size'
+        }
+    ]
+]
 
 create_seaborn_plots(plot_configs, ["Plot 1", "Plot 2"], 2, 1, sns.lineplot, "output.png")
 ```
@@ -70,10 +75,10 @@ create_seaborn_plots(plot_configs, ["Plot 1", "Plot 2"], 2, 1, sns.lineplot, "ou
 ## Customization
 
 - **Subplot Titles**: Set the title for each subplot using the `subplot_titles` parameter.
-- **Axis Labels**: Customize x and y labels for each subplot.
-- **Log Scaling**: Enable log scaling for x or y axes selectively.
-- **Secondary Axes**: Add secondary y-axes with separate labels and log scaling.
-- **3D Plots**: Enable 3D plotting by passing the `projection='3d'` parameter to the `add_subplot` function.
+- **Axis Labels**: Customize x and y labels for each subplot. Labels can be set individually within each plot configuration.
+- **Log Scaling**: Enable log scaling for x or y axes selectively for each subplot through `log_scale_x` and `log_scale_y` parameters.
+- **Secondary Axes**: Add secondary y-axes with separate labels and log scaling, configurable per subplot.
+- **3D Plots**: Enable 3D plotting by passing the `projection='3d'` parameter to the `add_subplot` function when applicable.
 
 For detailed customization options, refer to the docstrings provided within the `plotting_utility.py` script.
 
@@ -85,3 +90,4 @@ Contributions to the project are welcome! Please fork the repository and submit 
 
 This project is licensed under the MIT License, see LICENSE.md for details.
 ```
+
