@@ -72,7 +72,7 @@ def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, 
 
         # Manage legend display
         handles, labels = ax.get_legend_handles_labels()
-        ax.legend(handles, labels, loc='upper left')
+        ax.legend(handles, labels, loc='upper left') if label != None else None
 
         if secondary_ax:
             handles_secondary, labels_secondary = secondary_ax.get_legend_handles_labels()
