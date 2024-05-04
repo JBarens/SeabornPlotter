@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, file_path, 
                          answer_key=None, key=None, style='whitegrid', overall_title=None, 
-                         three_d=False, show=False, default_marker=None, default_markersize=None, figsize=None):
+                         three_d=False, show=False, default_marker=None, default_markersize=None):
     """
     Creates and saves Seaborn plots with flexibility for single or multiple subplots,
     with optional attributes specified per subplot in the plot configurations.
@@ -22,7 +22,6 @@ def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, 
         show (bool, optional): Show plot or not. Defaults to False.
         default_marker (str, optional): Default marker type if not specified per plot. Defaults to None.
         default_markersize (int, optional): Default size of the markers if not specified per plot. Defaults to None.
-        figsize (tuple, optional) : Figure size (width, height). Defaults to a rectangle.
     """
     sns.set_style(style)
     fig = plt.figure(figsize=(10 * ncols, 5 * nrows))
@@ -81,7 +80,7 @@ def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, 
     if overall_title:
         plt.suptitle(overall_title)
 
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95]) if figsize == None else plt.tight_layout(h_pad=figsize[1], w_pad=figsize[0])
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.savefig(file_path)
     if answer_key is not None and key is not None:
         answer_key[key] = [file_path]
