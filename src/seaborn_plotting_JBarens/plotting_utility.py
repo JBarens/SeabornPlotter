@@ -55,10 +55,11 @@ def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, 
             markersize = config.get('markersize', default_markersize)
             use_secondary = config.get('use_secondary', False)
             label = config.get('label', None)
+            linestyle = config.get('linestyle', None)
 
             target_ax = secondary_ax if use_secondary else ax
             if target_ax:
-                plot_func(data=data, x=x_col, y=y_col, ax=target_ax, color=color, label=label, marker=marker, markersize=markersize)
+                plot_func(data=data, x=x_col, y=y_col, ax=target_ax, color=color, label=label, marker=marker, markersize=markersize, linestyle=linestyle)
                 if log_scale_y:
                     target_ax.set_yscale('log')
                 if log_scale_x:
