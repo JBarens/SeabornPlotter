@@ -80,7 +80,7 @@ def create_seaborn_plots(plot_configs, subplot_titles, nrows, ncols, plot_func, 
     if overall_title:
         plt.suptitle(overall_title)
 
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    plt.tight_layout()
     plt.savefig(file_path)
     if answer_key is not None and key is not None:
         answer_key[key] = [file_path]
